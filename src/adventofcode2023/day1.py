@@ -21,4 +21,4 @@ def solve(input_: Iterable[str], digit_pattern: str) -> int:
 if __name__ == '__main__':
     input_ = tuple(sys.stdin)
     print(solve(input_, r'(?<=(\d)).*(?<=(\d))[a-z]*$'))
-    print(solve(input_, rf'(?:{MATCH_DIGIT_NAME}).*({MATCH_DIGIT_NAME})[a-z]*$'))
+    print(solve(input_, rf'(?:{MATCH_DIGIT_NAME}).*(?:{MATCH_DIGIT_NAME})[a-z]*$'))
