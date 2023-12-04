@@ -25,7 +25,7 @@ def part2(input_: Iterable[str]) -> int:
         for score in parse_scores(input_):
             n_tickets = next(copies, 0) + 1
             yield n_tickets
-            copies = ((new or 0) + (old or 0) for new, old in zip_longest(repeat(n_tickets, score), copies))
+            copies = (sum(tickets) for tickets in zip_longest(repeat(n_tickets, score), copies, fillvalue=0))
 
     return sum(count_tickets())
 
