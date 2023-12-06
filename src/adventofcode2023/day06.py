@@ -11,10 +11,7 @@ def bounds(time: int, distance: int) -> Tuple[int, int]:
 
 
 def part1(input_: Iterable[str]) -> int:
-    return prod(
-        (b := bounds(*race))[1] - b[0] + 1 for race in
-        zip(*((int(n) for n in re.findall(r'(\d+)', row)) for row in input_))
-    )
+    return prod(1 - sub(*bounds(*race)) for race in zip(*((int(n) for n in re.findall(r'(\d+)', row)) for row in input_)))
 
 
 def part2(input_: Iterable[str]) -> int:
