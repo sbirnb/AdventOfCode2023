@@ -14,7 +14,7 @@ def part1(input_: Iterable[str]) -> int:
         n_kinds = Counter(Counter(hand).values())
         return tuple(n_kinds[n] for n in range(5, 0, -1)), hand
 
-    values = dict(item for item in zip('23456789TJQKA', count()))
+    values = dict(zip('23456789TJQKA', count()))
     return sum(rank * hand[1] for rank, hand in enumerate(sorted(parse_input(input_, values), key=lambda hand: score(hand[0])), 1))
 
 
@@ -38,7 +38,7 @@ def part2(input_: Iterable[str]) -> int:
             return 1, hand
         return 0, hand
 
-    values = dict(item for item in zip('J23456789TQKA', count()))
+    values = dict(zip('J23456789TQKA', count()))
     return sum(rank * hand[1] for rank, hand in enumerate(sorted(parse_input(input_, values), key=lambda hand: score(hand[0])), 1))
 
 
