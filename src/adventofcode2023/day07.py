@@ -24,6 +24,7 @@ def part2(input_: Iterable[str]) -> int:
         counts = Counter(hand)
         j_count = counts[0]
         n_kinds = Counter(value for card, value in counts.items() if card != 0)
+        
         if j_count == 5 or any(n + j_count >= 5 for n in range(6) if n_kinds[n] > 0):
             return 6, hand
         if any(n + j_count >= 4 for n in range(6) if n_kinds[n] > 0):
